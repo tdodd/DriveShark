@@ -1,0 +1,13 @@
+# Compiled Output
+/**/*.pyc
+/**/__pycache__
+
+# Editor Files
+/.vscode
+/.idea
+
+# Node.js packages
+/node_modules
+
+# Environment configuration
+/driveshark/configuration.py

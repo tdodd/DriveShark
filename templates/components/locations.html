@@ -1,0 +1,78 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Welcome to DriveShark!{% endblock %}
+
+{% block content %}
+
+	{# Location button #}
+	<div class="add-btn-container">
+
+		<button class="add-location">
+
+			<span>Add Location</span>
+
+			{% load static %}
+			<img src="{% static 'assets/images/add-location-white.png' %}"
+				class="plus"
+				height="21"
+				alt="Add a new location"
+				title="Add a new location">
+
+		</button>
+
+	</div>
+
+	{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+
+				<li{% if message.tags %} class="message {{ message.tags }}" {% endif %}>
+					{{ message }}
+				</li>
+
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+	{# Location modal #}
+	{% include "includes/location-modal.html" %}
+
+	{% if location_list %}
+		<ul class="location-list">
+			{% for location in location_list %}
+				<li class="location-item">
+
+					<div class="location-icon"></div>
+					<div class="location-alias">{{ location.alias }}</div>
+					<div class="location-address">{{ location.address }}</div>
+					<div class="location-city">({{ location.city | capfirst }}, </div>
+					<div class="location-province">{{ location.province | capfirst }})</div>
+
+					<!-- Delete button -->
+					<form action="{% url 'delete_location' location.id %}" method="POST">
+
+						{% csrf_token %}
+						<input type="hidden" name="_method" value="DELETE">
+						<input type="hidden" name="_id" value="{{ location.id }}">
+
+						{% load static %}
+						<input type="image" class="delete-icon"
+							src="{% static 'assets/images/delete.png' %}"
+							title="Delete this location"
+							alt="Delete this location">
+
+					</form>
+
+				</li>
+			{% endfor %}
+		</ul>
+
+	{% else %}
+		<div class="no-locations">
+			{% load static %}
+			<img class="location-icon-lg" src="{% static 'assets/images/globe.png' %}" title="No Locations" alt="No Locations">
+		</div>
+
+	{% endif %}
+
+{% endblock %}

@@ -1,0 +1,29 @@
+$success-color: #00C853
+$error-color: #E51C23
+
+.message
+	width: 250px
+	margin: 0 auto 50px auto
+	line-height: 50px
+	vertical-align: middle
+	color: #FFF
+	font-weight: bold
+	text-align: center
+	opacity: 0
+	animation: message .7s ease
+	animation-fill-mode: forwards
+	animation-delay: .3s
+
+// Error
+.error
+	background: $error-color
+
+// Success
+.success
+	background: $success-color
+
+@keyframes message
+	from
+		opacity: 0
+	to
+		opacity: 1

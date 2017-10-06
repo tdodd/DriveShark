@@ -1,0 +1,52 @@
+@import ../../variables
+
+// List breakpoint widths
+$list-xlg: 879px
+$list-lg: 585px
+$list-md: 535px
+
+// Extra large screens
+@media screen and (max-width: $screen-xlg)
+	.location-list
+		width: $list-xlg !important
+
+// Large Screens
+@media screen and (max-width: $screen-lg)
+	.location-list
+		width: $list-lg !important
+
+// Medium Screens
+@media screen and (max-width: $screen-md)
+	.location-list
+		width: $list-md !important
+
+	.location-icon-lg
+		max-width: 70% !important
+
+	.plus
+		display: none
+
+	.add-btn-container
+		margin: 30px 5px !important
+
+	.add-location
+		padding: 8px !important
+
+	.location-item
+		width: 250px !important
+		margin-bottom: 25px
+
+// Small Screens
+@media screen and (max-width: $screen-sm)
+	.location-list
+		width: auto !important
+		padding: 0 8px !important
+
+	.location-item
+		width: 100% !important
+
+@media screen and (max-width: $screen-xsm)
+	.delete-icon
+		width: 18px !important
+		top: 1px !important
+		right: 1px !important

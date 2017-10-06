@@ -1,0 +1,88 @@
+#location-modal
+	z-index: 100
+	width: 650px
+	position: fixed
+	top: 15%
+	left: 0
+	right: 0
+	margin: 8px auto
+	background: white
+	border-radius: 2px
+	color: black
+	font-size: 2rem
+	transform: scale(.5)
+	box-shadow: 0 10px 70px 0px rgba(0, 0, 0, 0.5)
+
+/* Modal Animations */
+.modal-in
+	animation: modal-in .3s ease-in-out
+	animation-fill-mode: forwards
+
+.modal-out
+	animation: modal-out .3s ease-in-out
+	animation-fill-mode: forwards
+
+@keyframes modal-in
+	from
+		transform: scale(.5)
+	to
+		transform: scale(1)
+
+@keyframes modal-out
+	from
+		transform: scale(1)
+	to
+		transform: scale(.2)
+
+.modal-header
+	text-align: center
+	background: #47576d
+	box-shadow: 0 1px 2px 1px rgba(0,0,0,0.7)
+	color: white
+	padding: 0 50px
+
+.input-container
+	padding: 30px 0 0 0
+	position: relative
+
+.modal-input-centered
+	text-align: center
+
+.modal-input-alias,
+.modal-input-address
+	display: block
+	width: 400px
+	margin: 0 auto 25px auto
+
+.modal-input-city
+	width: 265px
+
+.modal-input-province
+	width: 125px
+
+.modal-input
+	border: 1px solid lightgray
+	border-radius: 3px
+	font-size: 1.2rem
+	padding: 10px 20px
+
+	&:focus
+		outline-color: #42A5F5
+
+.form-btn
+	width: 150px
+	font-size: 1.3rem
+	margin: 25px 0
+	border: none
+	border-radius: 2px
+	outline: none
+	background: teal
+	color: white
+	padding: 10px 0
+	text-transform: uppercase
+
+.form-btn:hover
+	cursor: pointer
+
+.save-btn-container
+	text-align: center

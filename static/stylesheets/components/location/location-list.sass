@@ -1,0 +1,73 @@
+@import ../../variables
+
+/* No Locations */
+.no-locations
+	text-align: center
+
+.location-icon-lg
+	margin-top: 75px
+	max-width: 350px
+	filter: grayscale(.5) drop-shadow(0 2px 1px rgba(0,0,0,.6))
+
+/* Add location button */
+.add-btn-container
+	text-align: center
+	margin: 30px 10px 65px 10px
+
+.add-location
+	outline: none
+	border: none
+	background: $primary-color
+	color: $text-color-light
+	border-radius: 3px
+	text-transform: uppercase
+	font-size: 1.3rem
+	padding: 12px 25px
+	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2)
+
+	&:hover
+		cursor: pointer
+		background: lighten($primary-color, 5%)
+
+	&:active
+		background: lighten($primary-color, 10%)
+
+.plus
+	position: relative
+	top: 3px
+	left: 8px
+
+/* Location List */
+.location-list
+	margin: 0 auto
+	width: 1173px
+
+.location-item
+	width: 275px
+	background: white
+	text-align: center
+	display: inline-block
+	position: relative
+	margin: 0 15px 15px 0
+	padding: 15px
+	border-radius: 2px
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,.6)
+
+.location-alias
+	color: $primary-color
+	font-weight: bold
+	text-decoration: underline
+	margin-bottom: 5px
+
+.location-city
+	display: inline-block
+
+.location-province
+	display: inline-block
+
+.delete-icon
+	position: absolute
+	top: 3px
+	right: 3px
+	width: 20px
+	opacity: .7

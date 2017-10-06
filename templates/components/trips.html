@@ -1,0 +1,44 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+	Your Trips
+{% endblock %}
+
+{% block content %}
+
+	{# Location button #}
+	<div class="add-btn-container">
+
+		<button class="add-location">
+
+			<span>Add Trip</span>
+
+			{% load static %}
+			<img src="{% static 'assets/images/add-location-white.png' %}"
+				class="plus"
+				height="21"
+				alt="Add a new location"
+				title="Add a new location">
+
+		</button>
+
+	</div>
+
+	{% if trip_list %}
+		<h1>Houston, we have trips!</h1>
+
+	{% else %}
+		<div class="no-trips">
+
+			{% load static %}
+			<img src="{% static 'assets/images/trip.svg' %}"
+				class="no-trips-icon"
+				title="You have no trips"
+				alt="You have no trips">
+
+		</div>
+
+
+	{% endif %}
+
+{% endblock %}

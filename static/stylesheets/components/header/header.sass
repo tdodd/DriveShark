@@ -1,0 +1,47 @@
+header
+	padding: 25px 8px
+	background: #333F4F
+	text-align: center
+
+.header-text
+	display: inline-block
+
+	a
+		color: #FFF
+		font-size: 4.5rem
+		font-weight: 300
+		line-height: 150px
+		vertical-align: middle
+		text-decoration: none
+
+.menu
+	border-top: 5px solid #42A5F5
+	padding: 10px 0
+	margin: 0
+	background: #BBDEFB
+	text-align: center
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,.6)
+
+	li
+		display: inline-block
+		font-size: 1.6em
+		font-weight: 300
+		margin: 0 15px
+
+		&::after
+			content: ''
+			display: block
+			width: 0
+			height: 1px
+			background: #000
+			transition: width .3s
+
+		&:hover::after
+			width: 100%
+
+		a
+			text-decoration: none
+			color: #000
+
+.active
+	border-bottom: 1px solid

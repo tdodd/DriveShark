@@ -1,0 +1,32 @@
+<div id="location-modal" class="hidden">
+
+	<div class="modal-header">Add a Location</div>
+
+	<form id="location-form" action="{% url 'create_location' %}" method="POST" class="input-container">
+
+		{% csrf_token %}
+
+		<label for="alias" class="hidden">Alias</label>
+		<input type="text" id="alias" name="alias" placeholder="Alias (Home, Gym, Work, etc.)" class="modal-input modal-input-alias" required>
+
+		<label for="address" class="hidden">Address</label>
+		<input type="text" id="address" name="address" placeholder="Street address" class="modal-input modal-input-address" required>
+
+		<div class="modal-input-centered">
+
+			<label for="city" class="hidden">City</label>
+			<input type="text" id="city" name="city" placeholder="City" class="modal-input modal-input-city" required>
+
+			<label for="province" class="hidden">Province</label>
+			<input type="text" id="province" name="province" placeholder="Province" class="modal-input modal-input-province" required>
+
+		</div>
+
+
+		<div class="save-btn-container">
+			<input type="submit" class="form-btn" id="save-btn" value="Save">
+		</div>
+
+	</form>
+
+</div>
