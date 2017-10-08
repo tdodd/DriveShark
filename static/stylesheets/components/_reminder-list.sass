@@ -1,0 +1,36 @@
+// _reminder-list.sass contains all styles for the reminder list
+@import ../modules/variables
+
+// No Reminders
+.no-reminders
+	text-align: center
+
+.no-reminders-icon
+	margin-top: 75px
+	max-width: 350px
+	opacity: .6
+
+// Location List
+.reminder-list
+	margin: 0 auto
+	width: 1175px
+
+.reminder-item
+	width: 275px
+	background: white
+	text-align: center
+	display: inline-block
+	position: relative
+	margin: 0 15px 15px 0
+	padding: 15px
+	border-radius: 2px
+	box-shadow: $card-shadow
+
+/*-----------------------------------*
+ 	Mobile Styles
+ *-----------------------------------*/
+
+// Small Screens
+@media screen and (max-width: $screen-sm)
+	.no-reminders-icon
+		width: 70%

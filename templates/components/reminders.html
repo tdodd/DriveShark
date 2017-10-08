@@ -1,0 +1,25 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Your Reminders{% endblock %}
+
+{% block content %}
+
+	{% if reminder_list %}
+		{% for reminder in reminder_list %}
+			{{ reminder }}
+		{% endfor %}
+
+	{% else %}
+		<div class="no-reminders">
+
+			{% load static %}
+			<img src="{% static 'assets/images/bell.png' %}"
+				class="no-reminders-icon"
+				title="You have no reminders"
+				alt="You have no reminders">
+
+		</div>
+
+	{% endif %}
+
+{% endblock %}

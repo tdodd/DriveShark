@@ -1,5 +1,7 @@
-// header.sass contains all styles for the header section
+// _header.sass contains all styles for the header and menu sections
 @import ../modules/variables
+
+$menu-color: #BBDEFB
 
 header
 	padding: 25px 8px
@@ -21,7 +23,7 @@ header
 	border-top: 5px solid #42A5F5
 	padding: 10px 0
 	margin: 0
-	background: #BBDEFB
+	background: $menu-color
 	text-align: center
 	box-shadow: 0 1px 3px 0 rgba(0,0,0,.6)
 
@@ -46,8 +48,9 @@ header
 			text-decoration: none
 			color: #000
 
+// Current Page
 .active
-	border-bottom: 1px solid
+	background: darken($menu-color, 15%)
 
 /*-----------------------------------*
  	Mobile Styles
@@ -56,14 +59,27 @@ header
 // Small Screens
 @media screen and (max-width: $screen-sm)
 	.header-text
-
 		a
-			font-size: 4rem !important
-			line-height: 85px !important
+			font-size: 4rem
+			line-height: 85px
+
+	.menu
+		padding: 0
+
+		li
+			border-bottom: 1px solid
+			font-size: 1.5rem
+			display: block
+
+			&:last-child
+				border-bottom: none
+
+			&:hover::after
+				width: 0
 
 // Extra Small Screens
 @media screen and (max-width: $screen-xsm)
 	.header-text
 		a
-			font-size: 3rem !important
-			line-height: 65px !important
+			font-size: 3rem
+			line-height: 65px

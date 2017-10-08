@@ -34,19 +34,19 @@
 	<ul class="menu">
 
 		{% if request.path == '/' %}
-			<li><a href="/" class="active">Locations</a></li>
+			<li class="active"><a href="/">Locations</a></li>
 		{% else %}
 			<li><a href="/">Locations</a></li>
 		{% endif %}
 
 		{% if request.path == '/trips/' %}
-			<li><a href="/trips" class="active">Trips</a></li>
+			<li class="active"><a href="/trips">Trips</a></li>
 		{% else %}
 			<li><a href="/trips">Trips</a></li>
 		{% endif %}
 
 		{% if request.path == '/reminders/' %}
-			<li><a href="/reminders" class="active">Reminders</a></li>
+			<li class="active"><a href="/reminders">Reminders</a></li>
 		{% else %}
 			<li><a href="/reminders">Reminders</a></li>
 		{% endif %}
