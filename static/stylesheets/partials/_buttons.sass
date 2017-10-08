@@ -1,0 +1,82 @@
+// _buttons.sass contains all reusable button styles
+@import ../modules/variables
+
+// Centered Button Container
+.btn-container
+	text-align: center
+	margin: 30px 10px 50px 10px
+	height: 50px
+
+// Main button class
+.btn
+	position: relative
+	outline: none
+	border: none
+	border-radius: 2px
+	text-transform: uppercase
+	font-size: 1.3rem
+	padding: 12px 25px
+	box-shadow: $btn-shadow
+
+	&:disabled
+		background: gray
+
+		&:hover
+			cursor: default
+			background: gray
+			box-shadow: $btn-shadow
+
+	&:hover
+		cursor: pointer
+		box-shadow: $btn-shadow-hover
+
+.add-btn
+	background: $primary-color
+	color: $text-color-light
+
+	&:hover
+		background: lighten($primary-color, 5%)
+
+	&:active
+		background: lighten($primary-color, 10%)
+
+.btn-delete
+	background: $error-color
+	color: $text-color-light
+
+	&:hover
+		background: lighten($error-color, 5%)
+
+	&:active
+		background: lighten($error-color, 10%)
+
+.plus
+	position: relative
+	top: 3px
+	left: 8px
+
+.trigger
+	position: absolute
+	left: 0
+	right: 0
+	top: 0
+	bottom: 0
+	z-index: 5
+
+	&:hover
+		cursor: pointer
+
+/*-----------------------------------*
+ 	Mobile Styles
+ *-----------------------------------*/
+
+// Medium Screens
+@media screen and (max-width: $screen-md)
+	.plus
+		display: none
+
+	.btn-container
+		margin: 30px 5px
+
+	.add-btn
+		padding: 8px !important

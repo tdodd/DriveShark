@@ -1,5 +1,5 @@
-$success-color: #00C853
-$error-color: #E51C23
+// _messages.sass contains styles for Django messages
+@import ../modules/variables
 
 .message
 	width: 250px
@@ -14,16 +14,17 @@ $error-color: #E51C23
 	animation-fill-mode: forwards
 	animation-delay: .3s
 
-// Error
-.error
-	background: $error-color
-
-// Success
-.success
-	background: $success-color
-
+// Message Animation
 @keyframes message
 	from
 		opacity: 0
 	to
 		opacity: 1
+
+// Error Message
+.error
+	background: $error-color
+
+// Success Message
+.success
+	background: $success-color

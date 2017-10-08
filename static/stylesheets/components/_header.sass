@@ -1,3 +1,6 @@
+// header.sass contains all styles for the header section
+@import ../modules/variables
+
 header
 	padding: 25px 8px
 	background: #333F4F
@@ -45,3 +48,22 @@ header
 
 .active
 	border-bottom: 1px solid
+
+/*-----------------------------------*
+ 	Mobile Styles
+ *-----------------------------------*/
+
+// Small Screens
+@media screen and (max-width: $screen-sm)
+	.header-text
+
+		a
+			font-size: 4rem !important
+			line-height: 85px !important
+
+// Extra Small Screens
+@media screen and (max-width: $screen-xsm)
+	.header-text
+		a
+			font-size: 3rem !important
+			line-height: 65px !important

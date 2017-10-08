@@ -1,4 +1,4 @@
-<div id="location-modal" class="hidden">
+<div id="location-modal" class="modal hidden">
 
 	<div class="modal-header">Add a Location</div>
 
@@ -7,7 +7,7 @@
 		{% csrf_token %}
 
 		<label for="alias" class="hidden">Alias</label>
-		<input type="text" id="alias" name="alias" placeholder="Alias (Home, Gym, Work, etc.)" class="modal-input modal-input-alias" required>
+		<input type="text" id="alias" name="alias" placeholder="Alias (Home, Gym, Work, etc.)" class="modal-input modal-input-alias" required autofocus>
 
 		<label for="address" class="hidden">Address</label>
 		<input type="text" id="address" name="address" placeholder="Street address" class="modal-input modal-input-address" required>
@@ -21,7 +21,6 @@
 			<input type="text" id="province" name="province" placeholder="Province" class="modal-input modal-input-province" required>
 
 		</div>
-
 
 		<div class="save-btn-container">
 			<input type="submit" class="form-btn" id="save-btn" value="Save">

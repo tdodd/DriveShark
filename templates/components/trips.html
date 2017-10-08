@@ -6,38 +6,111 @@
 
 {% block content %}
 
-	{# Location button #}
-	<div class="add-btn-container">
+	<div class="trip-header">Add a new trip</div>
 
-		<button class="add-location">
+	{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
 
-			<span>Add Trip</span>
+			<li{% if message.tags %} class="message {{ message.tags }}" {% endif %}>
+				{{ message }}
+			</li>
 
-			{% load static %}
-			<img src="{% static 'assets/images/add-location-white.png' %}"
-				class="plus"
-				height="21"
-				alt="Add a new location"
-				title="Add a new location">
+			{% endfor %}
+		</ul>
+	{% endif %}
 
-		</button>
+	{# Trip Form #}
+	<form id="trip-form" action="{% url 'create_trip' %}" method="POST" class="input-container">
 
-	</div>
+		{% csrf_token %}
 
-	{% if trip_list %}
-		<h1>Houston, we have trips!</h1>
+		<div class="modal-input-centered">
 
-	{% else %}
-		<div class="no-trips">
+			{# Trip departure location #}
+			<label for="from" class="hidden">From</label>
+			<input type="text" id="from" name="from" placeholder="From" class="modal-input modal-input-from" list="location-list" autocomplete="off" required autofocus>
 
-			{% load static %}
-			<img src="{% static 'assets/images/trip.svg' %}"
-				class="no-trips-icon"
-				title="You have no trips"
-				alt="You have no trips">
+			{# Trip destination location #}
+			<label for="to" class="hidden">Address</label>
+			<input type="text" id="to" name="to" placeholder="To" class="modal-input modal-input-to" list="location-list" required>
 
 		</div>
 
+		<div class="save-btn-container">
+			<input type="submit" class="btn form-btn" id="save-btn" value="Save">
+		</div>
+
+	</form>
+
+	{% if location_list %}
+
+		{# Location data for form autocomplete #}
+		<datalist id="location-list">
+			{% for location in location_list %}
+				<option class="dl-option" value="{{ location.alias }}">
+			{% endfor %}
+		</datalist>
+
+		{% if trip_list %}
+			<ul class="trip-list">
+				{% for trip in trip_list %}
+					<li class="trip-item">
+
+						<span class="trip-from">
+							{{ trip.from_text }}
+						</span>
+
+						<span class="trip-to">
+							To {{ trip.to_text }}
+						</span>
+
+						<div class="edit-container">
+
+							<div class="trigger" data-triggerId="trip-modal-{{trip.id}}"></div>
+
+							{% load static %}
+							<img src="{% static 'assets/images/edit.svg' %}"
+								class="icon edit-icon-lg"
+								title="Edit this trip"
+								alt="Edit this trip">
+
+						</div>
+
+					</li>
+				{% endfor %}
+			</ul>
+
+			{# Trip Modals #}
+			{% for trip in trip_list %}
+				 {% include "includes/trip-modal.html" %}
+			{% endfor %}
+
+
+		{% else %}
+			<div class="no-trips">
+
+				{% load static %}
+				<img src="{% static 'assets/images/trip.svg' %}"
+					class="no-trips-icon"
+					title="You have no trips"
+					alt="You have no trips">
+
+			</div>
+
+		{% endif %}
+
+	{% else %}
+		<div class="no-locations">
+
+			<div class="no-locations-header">
+				 You haven't added any locations yet
+			</div>
+
+			{% load static %}
+			<img class="location-icon-lg" src="{% static 'assets/images/globe.png' %}" title="No Locations" alt="No Locations">
+
+		</div>
 
 	{% endif %}
 

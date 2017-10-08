@@ -5,9 +5,11 @@
 {% block content %}
 
 	{# Location button #}
-	<div class="add-btn-container">
+	<div class="btn-container">
 
-		<button class="add-location">
+		<button class="btn add-btn">
+
+			<div class="trigger" data-triggerId="location-modal"></div>
 
 			<span>Add Location</span>
 
@@ -38,6 +40,7 @@
 	{% include "includes/location-modal.html" %}
 
 	{% if location_list %}
+
 		<ul class="location-list">
 			{% for location in location_list %}
 				<li class="location-item">
@@ -56,7 +59,7 @@
 						<input type="hidden" name="_id" value="{{ location.id }}">
 
 						{% load static %}
-						<input type="image" class="delete-icon"
+						<input type="image" class="icon delete-icon"
 							src="{% static 'assets/images/delete.png' %}"
 							title="Delete this location"
 							alt="Delete this location">

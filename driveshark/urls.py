@@ -27,4 +27,7 @@ urlpatterns = [
 	# Trips
    url(r'^trips/', include('trip.urls')),
 
+	# Reminders
+   url(r'^reminders/', include('reminder.urls')),
+
 ]

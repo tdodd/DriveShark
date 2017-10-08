@@ -16,6 +16,7 @@ const sourcemaps = require('gulp-sourcemaps');
  */
 
 // Inputs
+const sassMain = 'static/stylesheets/main.sass';
 const sassIn = 'static/stylesheets/**/*.sass';
 const es6In = 'static/javascripts/**/*.js';
 const imagesIn = 'static/images/**/*';
@@ -32,7 +33,7 @@ const imagesOut = 'static/assets/images';
 
 // Compile, minify and concatenate sass files
 gulp.task('compile-sass', () => {
-	gulp.src(sassIn)
+	gulp.src(sassMain)
 		.pipe(sass({ outputStyle: 'compressed' }))
 		.pipe(concat('main.css'))
 		.pipe(gulp.dest(sassOut))

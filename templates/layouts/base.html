@@ -45,6 +45,12 @@
 			<li><a href="/trips">Trips</a></li>
 		{% endif %}
 
+		{% if request.path == '/reminders/' %}
+			<li><a href="/reminders" class="active">Reminders</a></li>
+		{% else %}
+			<li><a href="/reminders">Reminders</a></li>
+		{% endif %}
+
 	</ul>
 
 	{# Page Body #}

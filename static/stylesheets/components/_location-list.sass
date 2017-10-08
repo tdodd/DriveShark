@@ -1,0 +1,84 @@
+// location-list.sass contains all styles for the homepage location list
+@import ../modules/variables
+
+// No Locations
+.no-locations
+	text-align: center
+
+.location-icon-lg
+	margin-top: 75px
+	max-width: 350px
+	filter: grayscale(.6) drop-shadow(0 2px 1px rgba(0,0,0,.6))
+
+// Location List
+.location-list
+	margin: 0 auto
+	width: 1175px
+
+.location-item
+	width: 275px
+	background: white
+	text-align: center
+	display: inline-block
+	position: relative
+	margin: 0 15px 15px 0
+	padding: 15px
+	border-radius: 2px
+	box-shadow: $card-shadow
+
+.location-alias
+	color: $primary-color
+	font-weight: bold
+	text-decoration: underline
+	margin-bottom: 5px
+
+.location-city
+	display: inline-block
+
+.location-province
+	display: inline-block
+
+/*-----------------------------------*
+ 	Mobile Styles
+ *-----------------------------------*/
+
+// List breakpoint widths
+$list-xlg: 880px
+$list-lg: 586px
+$list-md: 535px
+
+// Extra large screens
+@media screen and (max-width: $screen-xlg)
+	.location-list
+		width: $list-xlg !important
+
+// Large Screens
+@media screen and (max-width: $screen-lg)
+	.location-list
+		width: $list-lg !important
+
+// Medium Screens
+@media screen and (max-width: $screen-md)
+	.location-list
+		width: $list-md !important
+
+	.location-icon-lg
+		max-width: 70% !important
+
+	.location-item
+		width: 250px !important
+		margin-bottom: 25px
+
+// Small Screens
+@media screen and (max-width: $screen-sm)
+	.location-list
+		width: auto !important
+		padding: 0 8px !important
+
+	.location-item
+		width: 100% !important
+
+// Extra Small Screens
+@media screen and (max-width: $screen-xsm)
+	.location-item
+		font-size: .9rem !important

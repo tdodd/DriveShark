@@ -1,4 +1,8 @@
-#location-modal
+// _modals.sass contains all modal styles
+@import ../modules/variables
+
+// Main modal class
+.modal
 	z-index: 100
 	width: 650px
 	position: fixed
@@ -86,3 +90,36 @@
 
 .save-btn-container
 	text-align: center
+
+/*-----------------------------------*
+ 	Mobile Styles
+ *-----------------------------------*/
+
+// Medium Screens
+@media screen and (max-width: $screen-md)
+	.modal
+		width: auto !important
+		margin: 0 8px !important
+
+	.input-container
+		padding: 15px !important
+
+	.modal-input
+		display: block
+		width: 90% !important
+		margin: 0 auto 25px auto
+
+// Small Screens
+@media screen and (max-width: $screen-sm)
+	.modal-header
+		font-size: 1.6rem
+		padding: 5px !important
+
+	.form-btn
+		font-size: 1rem !important
+		width: 90% !important
+
+	.modal-input
+		width: 95% !important
+		font-size: 1.2rem !important
+		padding: 5px 10px !important

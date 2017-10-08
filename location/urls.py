@@ -10,7 +10,7 @@ urlpatterns = [
 	# POST /
 	url(r'^create_location$', views.create_location, name='create_location'),
 
-	# DELETE /
+	# DELETE /{id}
 	url(r'^delete_location/([0-9]+)$', views.delete_location, name='delete_location'),
 
 ]
