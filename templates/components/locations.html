@@ -51,7 +51,7 @@
 					<div class="location-city">({{ location.city | capfirst }}, </div>
 					<div class="location-province">{{ location.province | capfirst }})</div>
 
-					<!-- Delete button -->
+					{# Delete button #}
 					<form action="{% url 'delete_location' location.id %}" method="POST">
 
 						{% csrf_token %}

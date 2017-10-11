@@ -37,8 +37,8 @@
 
 		</div>
 
-		<div class="save-btn-container">
-			<input type="submit" class="btn form-btn" id="save-btn" value="Save">
+		<div class="btn-container">
+			<input type="submit" class="btn btn-save" value="Save">
 		</div>
 
 	</form>
@@ -57,38 +57,35 @@
 				{% for trip in trip_list %}
 					<li class="trip-item">
 
-						<span class="trip-from">
-							{{ trip.from_text }}
-						</span>
+						<span class="trip-from">{{ trip.from_text }}</span>
+						<span class="trip-to">To {{ trip.to_text }}</span>
 
-						<span class="trip-to">
-							To {{ trip.to_text }}
-						</span>
+						{# Delete button #}
+						<form action="{% url 'delete_trip' trip.id %}" method="POST">
 
-						<div class="edit-container">
-
-							<div class="trigger" data-triggerId="trip-modal-{{trip.id}}"></div>
+							{% csrf_token %}
+							<input type="hidden" name="_method" value="DELETE">
+							<input type="hidden" name="_id" value="{{ trip.id }}">
 
 							{% load static %}
-							<img src="{% static 'assets/images/edit.svg' %}"
-								class="icon edit-icon-lg"
-								title="Edit this trip"
-								alt="Edit this trip">
+							<input type="image"
+								class="icon delete-icon"
+								src="{% static 'assets/images/delete.png' %}"
+								title="Delete this trip"
+								alt="Delete this trip">
 
-						</div>
+						</form>
 
 					</li>
 				{% endfor %}
 			</ul>
 
-			{# Trip Modals #}
-			{% for trip in trip_list %}
-				 {% include "includes/trip-modal.html" %}
-			{% endfor %}
-
-
 		{% else %}
 			<div class="no-trips">
+
+				<div class="no-trips-text">
+					You have no Trips
+				</div>
 
 				{% load static %}
 				<img src="{% static 'assets/images/trip.svg' %}"

@@ -1,0 +1,41 @@
+<div id="reminder-modal" class="modal hidden">
+
+	<div class="modal-header">Add a Reminder</div>
+
+	{% if trip_list %}
+		<form class="input-container" action="{% url 'create_reminder' %}" method="POST">
+
+			{% csrf_token %}
+
+				<div class="modal-input-centered">
+
+					<label class="form-label" for="trip">Trip:</label>
+					<select name="trip_id" class="trip-dropdown" required>
+
+						{% for trip in trip_list %}
+							<option class="dl-option" value="{{ trip.id }}">
+								{{ trip.from_text }} to {{ trip.to_text }}
+							</option>
+						{% endfor %}
+
+					</select>
+
+				</div>
+
+				<div class="modal-input-centered">
+					<label for="reminder_time">Time:</label>
+					<input type="text" name="reminder_time" class="modal-input" placeholder="H:MM am/pm" required>
+				</div>
+
+				<div class="btn-container">
+					<input type="submit" class="btn btn-save" value="Save">
+				</div>
+
+		</form>
+	{% else %}
+		<div class="btn-container">
+			<div class="no-trips-text">You Have No Trips</div>
+		</div>
+	{% endif %}
+
+</div>
